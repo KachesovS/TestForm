@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Валидация аллергий
     allergiesInput.addEventListener('blur', function() {
-        if (this.value.trim() !== '') {
-            alert('Вы ввели информацию об аллергиях!');
-        }
+        alert('Вы ввели информацию об аллергиях!');
     });
 
     // Валидация СНИЛС
