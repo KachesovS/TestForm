@@ -1,3 +1,7 @@
+// Функция для вывода ошибок в консоль
+function logErrorToConsole(message) {
+    console.error(`Ошибка: ${message}`);
+
 document.getElementById('saveButton').addEventListener('click', function(event) {
     event.preventDefault();
     alert('Форма успешно сохранена!');
@@ -45,9 +49,20 @@ document.getElementById('dob').addEventListener('input', function() {
 });
 
 // Intentional bug: This should validate the blood type, but it doesn't.
-document.getElementById('bloodType').addEventListener('blur', function() {
-    const bloodType = this.value.toUpperCase();
-    if (!['A', 'B', 'AB', 'O'].includes(bloodType)) {
-        alert('Неверная группа крови!');
-    }
+//document.getElementById('bloodType').addEventListener('blur', function() {
+  //  const bloodType = this.value.toUpperCase();
+  //  if (!['A', 'B', 'AB', 'O'].includes(bloodType)) {
+  //      alert('Неверная группа крови!');
+  //  }
+
+ // Валидация группы крови
+    document.querySelectorAll('input[name="bloodType"]').forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const selectedBloodTypes = Array.from(document.querySelectorAll('input[name="bloodType"]:checked')).map(cb => cb.value);
+            if (selectedBloodTypes.length > 1) {
+                logErrorToConsole('Выбрано более одной группы крови!');
+            }
+        });
+    });
+});
 });
