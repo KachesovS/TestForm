@@ -2,7 +2,7 @@ document.getElementById('saveButton').addEventListener('click', function(event) 
     event.preventDefault();
     alert('Форма успешно сохранена!');
     // Intentional bug: This should clear the form, but it doesn't.
-    document.getElementById('medicalForm').reset();
+    //document.getElementById('medicalForm').reset();
 });
 
 document.getElementById('medicalForm').addEventListener('submit', function(event) {
