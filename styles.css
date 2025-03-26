@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    font-size: 16px;
+}
+
+form {
+    max-width: 800px;
+    margin: auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 50px; /* Увеличенное расстояние между колонками */
+}
+
+.form-column {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    top: 150%; /* Позиция тултипа ниже значка */
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px; /* Уменьшенный размер шрифта для тултипа */
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Стрелка тултипа */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.question-mark {
+    vertical-align: middle;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+/* Стиль для валидации СНИЛС */
+input#snils.invalid {
+    border-color: red;
+}
+
+#submitButton {
+    font-size: 15px; /* Увеличен размер текста */
+    width: 80px; /* Уменьшена ширина кнопки */
+}
+
+/* Стили для строки с полом */
+label[for="gender"] {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top; /* Изменили на top для выравнивания по верхнему краю */
+    padding-top: 3px; /* Добавляем небольшой отступ сверху для метки */
+}
+
+#gender {
+    width: auto;
+    margin: 3px 0 0 0; /* Добавили отступ сверху 3px */
+    vertical-align: top;
+    transform: scale(1.2);
+}
+
+
+/* Выровняли чекбоксы под названиями групп крови */
+.blood-type-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.blood-type-options label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    min-width: 80px;
+    overflow: visible; /* Позволяет тексту выйти за границы */
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #45a049;
+}

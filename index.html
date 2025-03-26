@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медицинская Карта</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="page-title">
+        Медицинская Карта
+        <span class="tooltip">
+            <span class="question-mark">?️</span>
+            <span class="tooltiptext">Это медицинская карта пациента</span>
+        </span>
+    </h1>
+    
+    <form id="medicalForm">
+        <div class="form-row">
+            <div class="form-column">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="fullName">ФИО:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="dob">Дата Рождения:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Пол:</label>
+                <input type="checkbox" id="gender" name="gender">
+
+                <label for="allergies">Аллергии:</label>
+                <textarea id="allergies" name="allergies" required></textarea>
+            </div>
+            <div class="form-column">
+                <label>Группа Крови:</label>
+                <div class="blood-type-options">
+                    <label>A <input type="checkbox" name="bloodType" value="A"></label>
+                    <label>B <input type="checkbox" name="bloodType" value="B"></label>
+                    <label>AB <input type="checkbox" name="bloodType" value="AB"></label>
+                    <label>O <input type="checkbox" name="bloodType" value="O"></label>
+                </div>
+
+                <label for="snils">СНИЛС:</label>
+                <input type="text" id="snils" name="snils" placeholder="Длина должна быть 15 символов" required>
+
+                <label for="address">Адрес:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="contactMethod">Способ связи:</label>
+                <select id="contactMethod" name="contactMethod" required>
+                    <option value="">Выберите</option>
+                    <option value="phone">Телефон</option>
+                    <option value="email">Почта</option>
+                </select>
+                <input type="text" id="contactInfo" name="contactInfo" placeholder="Введите контактную информацию" required>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button type="button" id="saveButton">Сохранить</button>
+            <button type="submit" id="submitButton">Отправить</button>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
