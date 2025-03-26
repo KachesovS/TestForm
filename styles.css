@@ -105,14 +105,16 @@ input#snils.invalid {
 label[for="gender"] {
     display: inline-block;
     margin-right: 10px;
-    padding-top: 3px;
+    vertical-align: baseline;  
 }
 
 #gender {
     width: auto;
-    margin: 3px 0 0 0;
+    margin: 0 0 3px 0;  
+    vertical-align: middle;  
     transform: scale(1.2);
-}
+    position: relative;
+    top: -8px;  
 
 .blood-type-options {
     display: flex;
