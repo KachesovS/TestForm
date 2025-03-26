@@ -25,13 +25,13 @@ document.getElementById('snils').addEventListener('blur', function() {
 });
 
 // Валидация даты рождения
-document.getElementById('dob').addEventListener('blur', function() {
-    const dob = this.value;
-    const datePattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
-    if (!datePattern.test(dob)) {
-        alert('Пожалуйста, введите дату в формате дд.мм.гггг');
-    }
-});
+//document.getElementById('dob').addEventListener('blur', function() {
+ //   const dob = this.value;
+ //   const datePattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
+  //  if (!datePattern.test(dob)) {
+  //      alert('Пожалуйста, введите дату в формате дд.мм.гггг');
+  //  }
+//});
 
 // Ограничение ввода года
 document.getElementById('dob').addEventListener('input', function() {
