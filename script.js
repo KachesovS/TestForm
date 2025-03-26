@@ -1,68 +1,69 @@
 // Функция для вывода ошибок в консоль
 function logErrorToConsole(message) {
     console.error(`Ошибка: ${message}`);
+}
 
-document.getElementById('saveButton').addEventListener('click', function(event) {
-    event.preventDefault();
-    alert('Форма успешно сохранена!');
-    // Intentional bug: This should clear the form, but it doesn't.
-    //document.getElementById('medicalForm').reset();
-});
+// Обработчики событий для формы
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('medicalForm');
+    const saveButton = document.getElementById('saveButton');
+    const snilsInput = document.getElementById('snils');
+    const dobInput = document.getElementById('dob');
+    const allergiesInput = document.getElementById('allergies');
+    const bloodTypeCheckboxes = document.querySelectorAll('input[name="bloodType"]');
 
-document.getElementById('medicalForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    alert('Форма успешно отправлена!');
-});
+    // Сохранение формы
+    saveButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        alert('Форма успешно сохранена!');
+        // Раскомментируйте для очистки формы
+        // form.reset();
+    });
 
-document.getElementById('allergies').addEventListener('blur', function() {
-    alert('Вы ввели информацию об аллергиях!');
-});
+    // Отправка формы
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Форма успешно отправлена!');
+    });
 
-// Валидация СНИЛС
-document.getElementById('snils').addEventListener('blur', function() {
-    const snils = this.value;
-    if (snils.length < 15) {
-        this.classList.add('invalid');
-    } else {
-        this.classList.remove('invalid');
-    }
-});
+    // Валидация аллергий
+    allergiesInput.addEventListener('blur', function() {
+        if (this.value.trim() !== '') {
+            alert('Вы ввели информацию об аллергиях!');
+        }
+    });
 
-// Валидация даты рождения
-//document.getElementById('dob').addEventListener('blur', function() {
-  // const dob = this.value;
-   //const datePattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
-   // if (!datePattern.test(dob)) {
-       // alert('Пожалуйста, введите дату в формате дд.мм.гггг');
-   // }
-//});
+    // Валидация СНИЛС
+    snilsInput.addEventListener('blur', function() {
+        this.classList.toggle('invalid', this.value.length < 15);
+    });
 
-// Ограничение ввода года
-document.getElementById('dob').addEventListener('input', function() {
-    const dob = this.value;
-    if (dob.length > 10) {
-        this.value = dob.slice(0, 10);
-    }
-    if (dob.length === 2 || dob.length === 5) {
-        this.value += '.';
-    }
-});
+    // Форматирование даты рождения
+    dobInput.addEventListener('input', function() {
+        const value = this.value;
+        
+        // Ограничение длины
+        if (value.length > 10) {
+            this.value = value.slice(0, 10);
+            return;
+        }
+        
+        // Автоматическое добавление точек
+        if (value.length === 2 || value.length === 5) {
+            this.value += '.';
+        }
+    });
 
-// Intentional bug: This should validate the blood type, but it doesn't.
-//document.getElementById('bloodType').addEventListener('blur', function() {
-  //  const bloodType = this.value.toUpperCase();
-  //  if (!['A', 'B', 'AB', 'O'].includes(bloodType)) {
-  //      alert('Неверная группа крови!');
-  //  }
-
- // Валидация группы крови
-    document.querySelectorAll('input[name="bloodType"]').forEach(function(checkbox) {
+    // Валидация группы крови
+    bloodTypeCheckboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
-            const selectedBloodTypes = Array.from(document.querySelectorAll('input[name="bloodType"]:checked')).map(cb => cb.value);
-            if (selectedBloodTypes.length > 1) {
+            const selected = Array.from(bloodTypeCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+                
+            if (selected.length > 1) {
                 logErrorToConsole('Выбрано более одной группы крови!');
             }
         });
     });
-});
 });
