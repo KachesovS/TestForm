@@ -102,6 +102,7 @@ input#snils.invalid {
     border-color: red;
 }
 
+/* Стили для строки с полом */
 label[for="gender"] {
     display: inline-block;
     margin-right: 10px;
@@ -115,6 +116,7 @@ label[for="gender"] {
     transform: scale(1.2);
     position: relative;
     top: -8px;  
+}
 
 .blood-type-options {
     display: flex;
