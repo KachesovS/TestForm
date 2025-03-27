@@ -130,3 +130,11 @@ label[for="gender"] {
     flex-direction: column;
     align-items: center;
 }
+#address {
+    width: calc(100% + 40px); /
+    padding: 10px 15px;
+    font-size: 18px;
+    min-height: 40px;
+    margin: 10px 20px; 
+    box-sizing: border-box;
+}
